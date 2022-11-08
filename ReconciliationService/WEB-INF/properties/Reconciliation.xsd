@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+
+	<xs:element name="Reconciliation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ServiceProviderDetails" maxOccurs="1" />
+				<xs:element ref="TransactoinSummary" maxOccurs="1" />
+				<xs:element ref="TransactionDetails" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ServiceProviderDetails">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SPCODE" />
+				<xs:element ref="SERVCODE" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="SERVCODE" type="xs:string" />
+	<xs:element name="SPCODE" type="xs:string" />
+
+	<xs:element name="TransactoinSummary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TotalTransactions" />
+				<xs:element ref="TotalAmount" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="TotalTransactions" type="xs:integer" />
+	<xs:element name="TotalAmount" type="xs:decimal" />
+
+	<xs:element name="TransactionDetails">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Transaction" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Transaction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SPTRN" />
+				<xs:element ref="TransDate" />
+				<xs:element ref="Amount" />
+				<xs:element ref="DEGTRN" />
+				<xs:element ref="Status" />
+				<xs:element ref="PaymentMethod" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="SPTRN" type="xs:string" />
+	<xs:element name="TransDate" type="xs:dateTime" />
+	<xs:element name="Amount" type="xs:decimal" />
+	<xs:element name="DEGTRN" type="xs:string" />
+	<xs:element name="Status" type="xs:integer" />
+
+	<xs:element name="PaymentMethod">
+
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="CreditCard" />
+				<xs:enumeration value="Credit Card" />
+				<xs:enumeration value="eDirham" />
+				<xs:enumeration value="Edirham" />
+				<xs:enumeration value="Direct Debit" />
+				<xs:enumeration value="BizDirect" />
+				<xs:enumeration value="CREDITCARD" />
+				<xs:enumeration value="EDIRHAM" />
+				<xs:enumeration value="BIZDIRECT" />
+				<xs:enumeration value="Not Selected" />
+			</xs:restriction>
+		</xs:simpleType>
+
+	</xs:element>
+
+</xs:schema>

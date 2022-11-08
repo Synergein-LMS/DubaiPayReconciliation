@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SPReconcilitionService" targetNamespace="http://ws.epay.dubai.gov.ae/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.epay.dubai.gov.ae/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://ws.epay.dubai.gov.ae/" schemaLocation="SPReconciliationService_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getTransactionStatusResponse">
+    <wsdl:part name="parameters" element="tns:getTransactionStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceException">
+    <wsdl:part name="ServiceException" element="tns:FaultInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTransactionListResponse">
+    <wsdl:part name="parameters" element="tns:getTransactionListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTransactionSummaryResponse">
+    <wsdl:part name="parameters" element="tns:getTransactionSummaryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTransactionSummary">
+    <wsdl:part name="parameters" element="tns:getTransactionSummary">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTransactionList">
+    <wsdl:part name="parameters" element="tns:getTransactionList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTransactionStatus">
+    <wsdl:part name="parameters" element="tns:getTransactionStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SPReconcilition">
+    <wsdl:operation name="getTransactionList">
+      <wsdl:input name="getTransactionList" message="tns:getTransactionList">
+    </wsdl:input>
+      <wsdl:output name="getTransactionListResponse" message="tns:getTransactionListResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="tns:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionStatus">
+      <wsdl:input name="getTransactionStatus" message="tns:getTransactionStatus">
+    </wsdl:input>
+      <wsdl:output name="getTransactionStatusResponse" message="tns:getTransactionStatusResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="tns:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionSummary">
+      <wsdl:input name="getTransactionSummary" message="tns:getTransactionSummary">
+    </wsdl:input>
+      <wsdl:output name="getTransactionSummaryResponse" message="tns:getTransactionSummaryResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceException" message="tns:ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SPReconcilitionServiceSoapBinding" type="tns:SPReconcilition">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getTransactionList">
+      <soap:operation soapAction="urn:GetTransactionList" style="document"/>
+      <wsdl:input name="getTransactionList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTransactionListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionStatus">
+      <soap:operation soapAction="urn:GetTransactionStatus" style="document"/>
+      <wsdl:input name="getTransactionStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTransactionStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionSummary">
+      <soap:operation soapAction="urn:GetTransactionSummary" style="document"/>
+      <wsdl:input name="getTransactionSummary">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTransactionSummaryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SPReconcilitionService">
+    <wsdl:port name="SPReconcilitionPort" binding="tns:SPReconcilitionServiceSoapBinding">
+      <soap:address location="http://localhost:8081/ReconciliationService/services/SPReconcilitionPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

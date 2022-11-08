@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.epay.dubai.gov.ae/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.epay.dubai.gov.ae/">
+  <xs:element name="getTransactionList" type="tns:getTransactionList"/>
+  <xs:element name="getTransactionListResponse" type="tns:getTransactionListResponse"/>
+  <xs:element name="getTransactionStatus" type="tns:getTransactionStatus"/>
+  <xs:element name="getTransactionStatusResponse" type="tns:getTransactionStatusResponse"/>
+  <xs:element name="getTransactionSummary" type="tns:getTransactionSummary"/>
+  <xs:element name="getTransactionSummaryResponse" type="tns:getTransactionSummaryResponse"/>
+  <xs:complexType name="getTransactionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="spCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="servCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="tranStatus" type="xs:int"/>
+      <xs:element minOccurs="0" name="includeSummary" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTransactionListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="faultInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTransactionStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="spCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="servCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="spTrn" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTransactionStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTransactionSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="spCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="servCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="tranStatus" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTransactionSummaryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FaultInfo" nillable="true" type="tns:faultInfo"/>
+</xs:schema>
